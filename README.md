@@ -31,7 +31,7 @@ Long-polling is the easiest way to receive updates for your bot because it does 
 
 To start your bot just extend [`LongPollingBot`](src/main/java/ru/max/bot/longpolling/LongPollingBot.java) class and add methods annotated by [`@UpdateHandler`](src/main/java/ru/max/bot/annotations/UpdateHandler.java) annotation.
 
-These methods must have **only** one parameter with concrete implementation of [`Update`](https://github.com/max-messenger/tamtam-bot-api/blob/master/src/main/java/chat/tamtam/botapi/model/Update.java). Every method will handle update of such type.
+These methods must have **only** one parameter with concrete implementation of [`Update`](https://github.com/max-messenger/max-bot-api-client-java/blob/main/src/main/java/ru/max/botapi/model/Update.java). Every method will handle update of such type.
 
 For example, simple bot that just replies on incoming message:
 
@@ -110,7 +110,7 @@ as an example of alternative container implementation.
 ### Handling bot commands
 
 Along with update handlers, methods can be annotated by [`@CommandHandler`](src/main/java/ru/max/bot/annotations/CommandHandler.java). Every method will handle command with the name specified in the annotation.
-These methods must have [`Message`](https://github.com/max-messenger/tamtam-bot-api/blob/master/src/main/java/chat/tamtam/botapi/model/Message.java) **as the first parameter**. Also, these methods can have command args in the method definition. 
+These methods must have [`Message`](https://github.com/max-messenger/max-bot-api-client-java/blob/main/src/main/java/ru/max/botapi/model/Message.java) **as the first parameter**. Also, these methods can have command args in the method definition. 
 Example: user typed "/command2 text max", then "text" will be arg1 and "max" will be arg2.
 ```java
 public class ReplyBot extends LongPollingBot {

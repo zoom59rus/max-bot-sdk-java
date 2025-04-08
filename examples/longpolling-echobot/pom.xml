@@ -32,8 +32,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>ru.oneme</groupId>
-            <artifactId>oneme-bot-sdk</artifactId>
+            <groupId>ru.max</groupId>
+            <artifactId>max-bot-sdk</artifactId>
             <version>0.0.6-SNAPSHOT</version>
         </dependency>
         <dependency>
