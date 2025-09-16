@@ -2,7 +2,7 @@ package ru.max.bot.chat;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import ru.max.bot.Randoms;
 import ru.max.bot.commands.Command;
@@ -13,8 +13,8 @@ import ru.max.botapi.model.Message;
 
 import static ru.max.bot.Mocks.message;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class ChatBotBuilderTest {
     @Test

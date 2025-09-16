@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import ru.max.bot.Randoms;
 import ru.max.botapi.model.Attachment;
@@ -44,7 +44,7 @@ import ru.max.botapi.model.VideoAttachment;
 import ru.max.botapi.model.VideoAttachmentRequest;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class CopyBuilderTest {
     @Test

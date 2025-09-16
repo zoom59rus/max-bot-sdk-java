@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import ru.max.botapi.model.Button;
 import ru.max.botapi.model.CallbackButton;
@@ -12,7 +12,7 @@ import ru.max.botapi.model.InlineKeyboardAttachmentRequest;
 
 import static java.util.Collections.singletonList;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class InlineKeyboardBuilderTest {
     @Test

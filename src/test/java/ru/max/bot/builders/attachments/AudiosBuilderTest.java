@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import ru.max.bot.Randoms;
 import ru.max.botapi.model.AttachmentRequest;
@@ -12,7 +12,7 @@ import ru.max.botapi.model.AudioAttachmentRequest;
 import ru.max.botapi.model.UploadedInfo;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AudiosBuilderTest {
     @Test

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import ru.max.bot.builders.attachments.AttachmentsBuilder;
 import ru.max.bot.builders.attachments.InlineKeyboardBuilder;
@@ -21,7 +21,7 @@ import ru.max.botapi.model.VideoAttachmentRequest;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class NewMessageBodyBuilderTest {
     private Button button1 = new CallbackButton("1", "1");

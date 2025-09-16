@@ -10,11 +10,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 
 import ru.max.bot.Randoms;
 import ru.max.botapi.client.MaxClient;
@@ -26,21 +26,21 @@ import ru.max.botapi.model.UpdateList;
 import ru.max.botapi.queries.GetSubscriptionsQuery;
 import ru.max.botapi.queries.GetUpdatesQuery;
 
-import static org.junit.Assert.fail;
-import static org.mockito.Matchers.isA;
+import static org.junit.jupiter.api.Assertions.fail;
+import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class LongPollingBotTest {
     @Mock
     private MaxClient client;
     List<Update> allUpdates;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         allUpdates = Stream.generate(Randoms::randomUpdate).limit(945).collect(Collectors.toList());
         when(client.newCall(isA(GetUpdatesQuery.class))).thenAnswer(i -> {
-            GetUpdatesQuery query = i.getArgumentAt(0, GetUpdatesQuery.class);
+            GetUpdatesQuery query = i.getArgument(0);
             long from = query.marker.getValue() == null ? 0 : query.marker.getValue();
             if (from >= allUpdates.size()) {
                 return CompletableFuture.completedFuture(new UpdateList(Collections.emptyList(), null));

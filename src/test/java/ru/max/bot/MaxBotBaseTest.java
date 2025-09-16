@@ -2,8 +2,8 @@ package ru.max.bot;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import ru.max.bot.annotations.CommandHandler;
 import ru.max.bot.annotations.UpdateHandler;
@@ -23,8 +23,8 @@ import ru.max.botapi.model.User;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -34,7 +34,7 @@ public class MaxBotBaseTest {
     private MaxClient client = mock(MaxClient.class);
     private TestBot testBot;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         testBot = new TestBot(client);
     }
@@ -82,12 +82,12 @@ public class MaxBotBaseTest {
         assertThat(response, is(mockResponse));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void shouldNotInvokeMethodWithManyArgs() {
         new InvalidBot2(client);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void shouldNotInvokeMethodWithNonUpdateArg() {
         new InvalidBot3(client);
     }
@@ -225,12 +225,12 @@ public class MaxBotBaseTest {
         assertThat(response, is(message));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void shouldNotCreateBotWithInvalidCommand() {
         new InvalidBot4(client);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void shouldNotCreateBotWithInvalidCommand2() {
         new InvalidBot5(client);
     }

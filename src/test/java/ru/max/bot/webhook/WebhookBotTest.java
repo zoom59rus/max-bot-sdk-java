@@ -10,12 +10,12 @@ import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import ru.max.bot.Randoms;
 import ru.max.bot.webhook.jetty.JettyWebhookBotContainer;
@@ -29,12 +29,13 @@ import ru.max.botapi.model.Update;
 import ru.max.botapi.queries.SubscribeQuery;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Matchers.isA;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class WebhookBotTest {
     @Mock
     private MaxClient client;
@@ -44,7 +45,7 @@ public class WebhookBotTest {
     private MaxTransportClient httpClient;
     private MaxSerializer serializer;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         when(client.newCall(isA(SubscribeQuery.class))).thenReturn(CompletableFuture.completedFuture(null));
 
@@ -60,7 +61,7 @@ public class WebhookBotTest {
         container.start();
     }
 
-    @After
+    @AfterEach
     public void tearDown() throws Exception {
         container.stop();
         container.join();
