@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.zoom59rus:max-bot-api-client-java:427a302f'
+    implementation 'com.github.zoom59rus:max-bot-api-client-java:39e0203dbf'
     implementation 'org.slf4j:slf4j-api:1.7.12'
     implementation 'org.eclipse.jetty:jetty-server:9.4.56.v20240826'
     implementation 'org.apache.commons:commons-lang3:3.5'
